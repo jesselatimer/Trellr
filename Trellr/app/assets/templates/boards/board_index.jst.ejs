@@ -1,0 +1,5 @@
+<h2>Boards</h2>
+
+<% boards.each(function (board) { %>
+  <a href="#/boards/<%= board.id %>" class="board"><%= board.get("title") %></a>
+<% }); %>

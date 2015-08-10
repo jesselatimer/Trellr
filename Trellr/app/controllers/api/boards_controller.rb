@@ -8,7 +8,7 @@ class Api::BoardsController < ApplicationController
 
   def show
     @board = current_user.boards.find(params[:id])
-    render json: @board
+    render :board_show
   end
 
   def create

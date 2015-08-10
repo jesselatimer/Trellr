@@ -4,6 +4,8 @@ window.Trellr = {
   Views: {},
   Routers: {},
   initialize: function() {
+    new Trellr.Routers.AppRouter();
+    Backbone.history.start();
   }
 };
 
