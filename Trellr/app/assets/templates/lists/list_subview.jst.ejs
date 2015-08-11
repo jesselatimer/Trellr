@@ -1,4 +1,5 @@
-<%= list.get("title") %>
-<ul class="cards">
+<p class="list-title"><%= list.escape("title") %></p>
+<button type="button" class="delete-list" data-id="<%= list.id %>">Delete</button>
+<ul class="cards sortable">
 
 </ul>

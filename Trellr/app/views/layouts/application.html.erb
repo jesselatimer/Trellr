@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><a href="#">Trellr</a></h1>
+  <div class="header">
+    <h1><a href="#">Trellr</a></h1>
+    <div class="user-info">
+    <% if current_user %>
+      <%= button_to "Sign Out", session_url, method: :delete %>
+      <p>Signed in as: <%= current_user.username %></p>
+    <% else %>
+      <p>
+        <%= link_to "Sign In", new_session_url %> |
+        <%= link_to "Sign Up", new_user_url %>
+      </p>
+    <% end %>
+    </div>
+  </div>
 
   <% if flash && flash["errors"] %>
     <ul>
@@ -18,18 +31,6 @@
   <% end %>
 
 <%= yield %>
-
-<% if current_user %>
-  <p>
-    Signed in as: <%= current_user.username %><br>
-    <%= button_to "Sign Out", session_url, method: :delete %>
-  </p>
-<% else %>
-  <p>
-    <%= link_to "Sign In", new_session_url %> |
-    <%= link_to "Sign Up", new_user_url %>
-  </p>
-<% end %>
 
 </body>
 </html>

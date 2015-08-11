@@ -2,7 +2,8 @@ class Api::CardsController < ApplicationController
   before_action :require_login
 
   def create
-    @card = current_user.cards.new(card_params)
+    list = List.find(card_params[:list_id])
+    @card = list.cards.new(card_params)
     if @card.save
       render json: @card
     else

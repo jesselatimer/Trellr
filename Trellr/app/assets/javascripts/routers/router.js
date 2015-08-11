@@ -13,6 +13,7 @@ Trellr.Routers.AppRouter = Backbone.Router.extend ({
   boardIndex: function () {
     var view = new Trellr.Views.BoardIndex({ collection: this.collection });
     this._swapView(view);
+    $("body").addClass("index");
   },
 
   boardShow: function (id) {
@@ -27,6 +28,8 @@ Trellr.Routers.AppRouter = Backbone.Router.extend ({
   _swapView: function (newView) {
     this._view && this._view.remove();
     this._view = newView;
-    this.$rootEl.html(newView.render().$el);
+    this.$rootEl.html(newView.$el);
+    newView.render();
+    $("body").removeClass("index");
   }
 });

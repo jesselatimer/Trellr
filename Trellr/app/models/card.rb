@@ -11,7 +11,7 @@
 #
 
 class Card < ActiveRecord::Base
-  validates :title, :description, :list, presence: true
+  validates :title, :list, presence: true
   belongs_to :list
   has_one :board, through: :list
   has_one :user, through: :board

@@ -1,12 +1,14 @@
 Trellr.Views.CardSubview = Backbone.View.extend ({
-  template: JST["lists/list_subview"],
+  template: JST["cards/card_subview"],
+  tagName: 'li',
+  className: 'card-item',
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {
-    var renderedContent = this.template({ list: this.model });
+    var renderedContent = this.template({ card: this.model });
     this.$el.html(renderedContent);
     return this;
   }

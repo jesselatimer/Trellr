@@ -11,6 +11,11 @@ Trellr.Models.Board = Backbone.Model.extend ({
   parse: function (response) {
     if (response.lists) {
       this.lists().set(response.lists);
+      this.lists().each(function (list) {
+        if (list.attributes.cards) {
+          list.cards().set(list.attributes.cards);
+        }
+      });
       delete response.lists;
     }
     return response;
